@@ -696,7 +696,7 @@ function scenceColorChange4() {
             backgroundColor: 'rgba(87, 173, 140, 1)',
 
             backgroundImage: `url(assets/images/gradiant-dark-green.png)`,
-            duration: 1,
+            duration: 2,
 
 
         })// build scene 2
