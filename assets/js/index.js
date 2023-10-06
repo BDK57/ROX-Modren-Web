@@ -66,7 +66,7 @@ const lenis = new Lenis(
         duration: 1.5,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
         direction: 'vertical', // vertical, horizontal
-        gestureDirection: 'both', // vertical, horizontal, both
+        gestureDirection: 'vertical', // vertical, horizontal, both
         smooth: true,
         mouseMultiplier: 1,
         smoothTouch: true,
@@ -551,11 +551,11 @@ function scene9() {
 
                 // duration: 0.05,
                 scrub: 1,
-                // start: '-750px top',
-                // end: '-400px bottom',
-                start: '-650px top',
-                end: '0px 0px',
-                markers: true,
+                start: '-550px top',
+                end: '800px bottom',
+                // start: '-650px top',
+                // end: '0px 0px',
+                // markers: true,
 
 
                 // scrub: 5
@@ -575,15 +575,15 @@ function scene9() {
         // duration: 2,
     }, {
         xPercent: 0,
-        duration: 50,
+        duration: 100,
     })
     tl.fromTo('.why-rox .roll', {
         xPercent: 200,
         // duration: 2,
     }, {
         xPercent: 0,
-        duration: 50,
-    })
+        duration: 100,
+    }, '<100%')
 
 
 
@@ -596,9 +596,9 @@ function scene9() {
         xPercent: 0,
         scale: 1,
         opacity: 1,
-        duration: 50,
-        ease: 'power5'
-    })// build scene 2
+        duration: 100,
+
+    }, '<100%')// build scene 2
 
     tl.fromTo('.slide-2-txt-box h3', {
         xPercent: 200,
@@ -609,7 +609,7 @@ function scene9() {
         xPercent: 0,
         scale: 1,
         opacity: 1,
-        duration: 50,
+        duration: 100,
         ease: 'power5'
     })// build scene 2
     tl.fromTo('.slide-2-txt-box .btn img', {
@@ -622,8 +622,15 @@ function scene9() {
         scale: 1,
         opacity: 1,
         duration: 50,
-        ease: 'power5'
+
     })// build scene 2
+
+
+    return tl;
+}
+function scene9n() {
+    let tl = gsap.timeline();
+
     tl.fromTo('.slide2-graphic1 , .slide2-graphic2 ,.slide2-graphic3',
         {
             opacity: 0
@@ -633,8 +640,26 @@ function scene9() {
         {
             opacity: 1,
 
-            duration: 50,
+            duration: 100,
             stagger: 1,
+            scrollTrigger: {
+
+                trigger: ".why-rox",
+
+                scroller: "body",
+
+                // duration: 0.05,
+                scrub: 1,
+                start: '-200px top',
+                end: '700px bottom',
+                // start: '-650px top',
+                // end: '0px 0px',
+                // markers: true,
+
+
+                // scrub: 5
+
+            },
 
 
         })
@@ -651,7 +676,7 @@ function scene10() {
     },
         {
 
-            yPercent: 100,
+            yPercent: 150,
             // duration: 2,
             // stagger: 2,
             // yoyo: true,
@@ -663,7 +688,7 @@ function scene10() {
 
                 markers: false,
 
-                start: "-500px 20%",
+                start: "-650px 10%",
 
                 end: "0px bottom",
                 // markers: true,
@@ -681,6 +706,7 @@ slide2Master.add(scenceColorChange2())
     .add(scene7())
     .add(scene8())
     .add(scene9())
+    .add(scene9n(), "+=50")
     .add(scene10())
 
 
@@ -694,7 +720,7 @@ function scenceColorChange3() {
 
             // duration: 0.05,
             scrub: 1,
-            start: '-700px top',
+            start: '-500px top',
             end: '600px bottom',
             // markers: true,
 
@@ -760,146 +786,202 @@ function sceneSlidemove3() {
     return tl;
 }
 
-
 function scene11() {
+    let tl = gsap.timeline();
+    tl.fromTo('.char-slide3', { y: 700, opacity: 1 }, {
+
+        y: 0, duration: 2, opacity: 1, stagger: 1,
+        scrollTrigger: {
+
+            trigger: ".char-slide3",
+
+            scroller: "body",
+
+            // duration: 0.05,
+            scrub: true,
+            start: '-1400px top',
+            end: '0px bottom',
+            // markers: true,
+
+            // scrub: 5
+
+        },
+
+    })// build scene 2
+
+    return tl;
+}
+
+
+
+function scene12() {
+    let tl = gsap.timeline();
+    tl.fromTo(".char-slide3 img",
+        { x: -10, duration: 2 },
+        { x: 20, duration: 2, repeat: -1, yoyo: true })
+    // return tl
+}
+
+
+function scene13() {
     let tl = gsap.timeline(
         {
             scrollTrigger: {
 
-                trigger: ".partnership",
+                trigger: ".collab-central",
 
                 scroller: "body",
 
                 // duration: 0.05,
-                scrub: 5,
-                start: '-500px top',
-                end: '100px bottom',
+                scrub: 1,
+                start: '-550px top',
+                end: '820px bottom',
+                // start: '-650px top',
+                // end: '0px 0px',
                 // markers: true,
+
 
                 // scrub: 5
 
             },
         }
     );
-    tl.fromTo('.partnership h2', {
+    tl.fromTo('.collab-central h2', {
         xPercent: -200,
-        // duration: 2,
+
     }, {
         xPercent: 0,
         duration: 50,
     })
-    tl.fromTo('.partnership .collab', {
-        xPercent: -200,
+    tl.fromTo('.collab-central .collab', {
+        xPercent: -300,
         // duration: 2,
     }, {
         xPercent: 0,
-        duration: 50,
+        duration: 100,
     })
-    tl.fromTo('.partnership .central', {
-        xPercent: -200,
+    tl.fromTo('.collab-central .central', {
+        xPercent: -300,
         // duration: 2,
     }, {
         xPercent: 0,
-        duration: 50,
-    })
-
-    tl.fromTo('.char-slide3', { y: 700, opacity: 1 }, {
-
-        y: 0, duration: 20, opacity: 1,
+        duration: 100,
+    }, '<100%')
 
 
-    }, "<20")
-    tl.fromTo('.slide3-graphic1 , .slide3-graphic2 ,.slide3-graphic3',
+
+    tl.fromTo('.slide3-nav>p', {
+        xPercent: -200,
+        scale: 0,
+        opacity: 0
+        // duration: 2,
+    }, {
+        xPercent: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 100,
+
+    }, '<100%')// build scene 2
+
+    tl.fromTo('.slide3-nav>h3', {
+        xPercent: -200,
+        scale: 0,
+        opacity: 0
+        // duration: 2,
+    }, {
+        xPercent: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 100,
+        ease: 'power5'
+    })// build scene 2
+    tl.fromTo('.slide3-nav .item-bx', {
+        // xPercent: 200,
+        scale: 0,
+        opacity: 0
+        // duration: 2,
+    }, {
+        // xPercent: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 100,
+
+    })// build scene 2
+
+
+    return tl;
+}
+function scene13n() {
+    let tl = gsap.timeline();
+
+    tl.fromTo('.slide3-graphic2 ,.slide3-graphic3',
         {
-            yPercent: 0,
-            opacity: 0,
+            opacity: 0
+
             // duration: 2,
         },
         {
             opacity: 1,
-            yPercent: 5,
-            duration: 3.5,
-            stagger: 1.5,
+
+            duration: 100,
+            stagger: 1,
+            scrollTrigger: {
+
+                trigger: ".collab-central",
+
+                scroller: "body",
+
+                // duration: 0.05,
+                scrub: 1,
+                start: '-200px top',
+                end: '800px bottom',
+                // start: '-650px top',
+                // end: '0px 0px',
+                // markers: true,
+
+
+                // scrub: 5
+
+            },
 
 
         })
-
-    tl.fromTo('.partnership-nav ul li',
-        {
-            yPercent: 0,
-            opacity: 0,
-            scale: 0
-            // duration: 2,
-        },
-        {
-            opacity: 1,
-            scale: 1,
-            duration: 3.5,
-            stagger: 1.5,
-
-
-        }, "<1")
-
 
     return tl;
 }
 
 
-function scene12() {
+function scene14() {
     let tl = gsap.timeline({
         scrollTrigger: {
 
-            trigger: ".slide3-graphic1",
+            trigger: " .slide3-graphic2 , .slide3-graphic3",
 
             scroller: "body",
 
+            markers: false,
+
+            stagger: 10,
+            start: "-50px 0%",
+            end: "0px bottom",
             // markers: true,
 
-            start: "-80px 30%",
+            scrub: 10
 
-            end: "80% 80%",
-            // markers: true,
-            scrub: 5
         },
     });
 
-    tl.fromTo('.slide3-graphic1 ',
+    tl.fromTo('.slide3-graphic2 , .slide3-graphic3', {
+        yPercent: 0
+    },
         {
-            xPercent: 0,
-        },
-        {
-            xPercent: 30,
-            // yoyo: true
-            duration: 2,
 
+            yPercent: 150,
+            duration: 20,
+            stagger: 8
+            // yoyo: true,
 
         })
-
-    tl.fromTo('.slide3-graphic2 ',
-        {
-            xPercent: 0,
-        },
-        {
-            xPercent: -30,
-            // yoyo: true
-            duration: 2,
-
-
-        }, "-=1")
-
-    tl.fromTo('.slide3-graphic3',
-        {
-            xPercent: 0,
-        },
-        {
-            xPercent: -70,
-            // yoyo: true
-            duration: 2,
-
-
-        }, "-=1")
-
-
     return tl;
 }
 // overlap slightly
@@ -910,6 +992,9 @@ let slide3Master = gsap.timeline()
 slide3Master.add(scenceColorChange3())
     .add(scene11())
     .add(scene12(), "+=2")
+    .add(scene13(), "+=2")
+    .add(scene13n(), "+=2")
+    .add(scene14(), "+=2")
 
 function scenceColorChange4() {
     let tl = gsap.timeline({
@@ -921,7 +1006,7 @@ function scenceColorChange4() {
 
             // duration: 0.05,
             scrub: 1,
-            start: '-700px top',
+            start: '-500px top',
             end: '600px bottom',
             // markers: true,
 
@@ -991,66 +1076,221 @@ function sceneSlidemove4() {
     return tl;
 }
 
-function scene13() {
+
+function slide4_scence_1() {
+    let tl = gsap.timeline();
+    tl.fromTo('.char-slide4', { y: 700, opacity: 1 }, {
+
+        y: 0, duration: 2, opacity: 1, stagger: 1,
+        scrollTrigger: {
+
+            trigger: ".char-slide4",
+
+            scroller: "body",
+
+            // duration: 0.05,
+            scrub: true,
+            start: '-1400px top',
+            end: '0px bottom',
+            // markers: true,
+
+            // scrub: 5
+
+        },
+
+    })// build scene 2
+
+    return tl;
+}
+
+
+
+function slide4_scence_2() {
+    let tl = gsap.timeline();
+    tl.fromTo(".char-slide4 img",
+        { x: -10, duration: 2 },
+        { x: 20, duration: 2, repeat: -1, yoyo: true })
+    // return tl
+}
+
+
+function slide4_scence_3() {
     let tl = gsap.timeline(
         {
             scrollTrigger: {
 
-                trigger: ".plans",
+                trigger: ".ref-earn-thrive",
 
                 scroller: "body",
 
                 // duration: 0.05,
-                scrub: 5,
-                start: '-500px 30%',
-                end: '100px bottom',
+                scrub: 1,
+                start: '-550px top',
+                end: '920px bottom',
+                // start: '-650px top',
+                // end: '0px 0px',
                 // markers: true,
+
 
                 // scrub: 5
 
             },
         }
     );
-    tl.fromTo('.plans', {
-        xPercent: -200,
+    tl.fromTo('.ref-earn-thrive h2', {
+        xPercent: 200,
+
+    }, {
+        xPercent: 0,
+        duration: 50,
+    })
+    tl.fromTo('.ref-earn-thrive .ref', {
+        xPercent: 300,
         // duration: 2,
     }, {
         xPercent: 0,
-        duration: 20,
-        delay: 2
+        duration: 100,
+    })
+    tl.fromTo('.ref-earn-thrive .earn', {
+        xPercent: 300,
+        // duration: 2,
+    }, {
+        xPercent: 0,
+        duration: 100,
+    }, '<100%')
+    tl.fromTo('.ref-earn-thrive .thrive', {
+        xPercent: 300,
+        // duration: 2,
+    }, {
+        xPercent: 0,
+        duration: 100,
+    }, '<100%')
+
+
+
+    tl.fromTo('.slide4-nav>p', {
+        xPercent: 200,
+        scale: 0,
+        opacity: 0
+        // duration: 2,
+    }, {
+        xPercent: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 100,
+
+    }, '<100%')// build scene 2
+
+    tl.fromTo('.slide4-nav>ul', {
+        xPercent: 200,
+        scale: 0,
+        opacity: 0
+        // duration: 2,
+    }, {
+        xPercent: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 100,
+        ease: 'power5'
+    })// build scene 2
+    tl.fromTo('.slide4-nav .item-bx', {
+        // xPercent: 200,
+        scale: 0,
+        opacity: 0
+        // duration: 2,
+    }, {
+        // xPercent: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 100,
+
     })// build scene 2
 
-    tl.fromTo('.char-slide4', { y: 700, x: 700, opacity: 0, scale: 0.7 }, {
 
-        y: 0, x: 0, duration: 8, opacity: 1, scale: 1
-    }, "<20")
+    return tl;
+}
+function slide4_scence_4() {
+    let tl = gsap.timeline();
 
-
-    tl.fromTo('.plans-nav ul li , .plans-nav .view-all-box .view-all',
+    tl.fromTo('.slide4-graphic1 ,.slide4-graphic2 ,.slide4-graphic3',
         {
-            yPercent: 0,
-            opacity: 0,
-            scale: 0
+            opacity: 0
+
             // duration: 2,
         },
         {
             opacity: 1,
-            scale: 1,
-            duration: 4.5,
-            stagger: 1.5,
+
+            duration: 100,
+            stagger: 1,
+            scrollTrigger: {
+
+                trigger: ".ref-earn-thrive",
+
+                scroller: "body",
+
+                // duration: 0.05,
+                scrub: 1,
+                start: '-200px top',
+                end: '800px bottom',
+                // start: '-650px top',
+                // end: '0px 0px',
+                // markers: true,
 
 
-        }, "<1")
+                // scrub: 5
 
+            },
+
+
+        })
 
     return tl;
 }
 
 
+function slide4_scence_5() {
+    let tl = gsap.timeline({
+        scrollTrigger: {
+
+            trigger: " .slide4-graphic3,.slide4-graphic2 , .slide4-graphic3",
+
+            scroller: "body",
+
+
+
+            start: "-200px 0%",
+            stagger: 10,
+            end: "0px bottom",
+            // markers: true,
+
+            scrub: 10
+
+        },
+    });
+
+    tl.fromTo('.slide4-graphic2 , .slide4-graphic3, .slide4-graphic1', {
+        yPercent: 0
+    },
+        {
+
+            yPercent: 150,
+            duration: 20,
+            stagger: 8
+            // yoyo: true,
+
+        })
+    return tl;
+}
+
 let slide4Master = gsap.timeline()
 // slide4Master.add(sceneSlidemove4())
 slide4Master.add(scenceColorChange4())
-// .add(scene13())
+    .add(slide4_scence_1())
+    .add(slide4_scence_2())
+    .add(slide4_scence_3())
+    .add(slide4_scence_4())
+    .add(slide4_scence_5())
 
 
 function scenceColorChange5() {
@@ -1063,7 +1303,7 @@ function scenceColorChange5() {
 
             // duration: 0.05,
             scrub: 1,
-            start: '-700px top',
+            start: '-500px top',
             end: '600px bottom',
             // markers: true,
 
@@ -1130,121 +1370,202 @@ function sceneSlidemove5() {
 }
 
 
-function scene14() {
+function slide5_scence_1() {
+    let tl = gsap.timeline();
+    tl.fromTo('.char-slide5', { y: 700, x: 700, opacity: 1 }, {
+
+        y: 0, x: 0, duration: 2, opacity: 1, stagger: 1,
+        scrollTrigger: {
+
+            trigger: ".char-slide5",
+
+            scroller: "body",
+
+            // duration: 0.05,
+            scrub: 2,
+            start: '-1600px top',
+            end: '-300px bottom',
+            // markers: true,
+
+            // scrub: 5
+
+        },
+
+    })// build scene 2
+
+    return tl;
+}
+
+
+
+function slide5_scence_2() {
+    let tl = gsap.timeline();
+    tl.fromTo(".char-slide5 img",
+        { x: -10, duration: 2 },
+        { x: 20, duration: 2, repeat: -1, yoyo: true })
+    // return tl
+}
+
+
+function slide5_scence_3() {
     let tl = gsap.timeline(
         {
             scrollTrigger: {
 
-                trigger: ".help-us",
+                trigger: ".our-data-plan",
 
                 scroller: "body",
 
                 // duration: 0.05,
-                scrub: 5,
-                start: '-500px 30%',
-                end: '100px bottom',
+                scrub: 1,
+                start: '-550px top',
+                end: '800px bottom',
+                // start: '-650px top',
+                // end: '0px 0px',
                 // markers: true,
+
 
                 // scrub: 5
 
             },
         }
     );
-    tl.fromTo('.help-us', {
+    tl.fromTo('.our-data-plan>h2', {
         xPercent: -200,
+
+    }, {
+        xPercent: 0,
+        duration: 50,
+    })
+    tl.fromTo('.our-data-plan .we-got', {
+        xPercent: -300,
         // duration: 2,
     }, {
         xPercent: 0,
-        duration: 20,
-        delay: 2
+        duration: 100,
+    })
+    tl.fromTo('.our-data-plan .plan', {
+        xPercent: -300,
+        // duration: 2,
+    }, {
+        xPercent: 0,
+        duration: 100,
+    }, '<100%')
+
+
+
+    tl.fromTo('.slide5-nav>p', {
+        xPercent: -200,
+        scale: 0,
+        opacity: 0
+        // duration: 2,
+    }, {
+        xPercent: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 100,
+
+    }, '<100%')// build scene 2
+
+    tl.fromTo('.slide5-nav>.btns div', {
+        // xPercent: -200,
+        scale: 0,
+        opacity: 0
+        // duration: 2,
+    }, {
+        xPercent: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 100,
+        ease: 'power5'
     })// build scene 2
-
-    tl.fromTo('.char-slide5', { y: 700, x: -700, opacity: 0, scale: 0 }, {
-
-        y: 0, x: 0, duration: 8, opacity: 1, scale: 1
-    }, "<10")
-
-    tl.fromTo('.slide5-graphic1 , .slide5-graphic2 ,.slide5-graphic3,.slide5-nav .view-all',
-        {
-            yPercent: 0,
-            opacity: 0,
-            scale: 0
-            // duration: 2,
-        },
-        {
-            opacity: 1,
-            scale: 1,
-            duration: 3.5,
-            stagger: 1.5,
-
-
-        }, "<1")
 
 
 
     return tl;
 }
+function slide5_scence_4() {
+    let tl = gsap.timeline();
 
-function scene15() {
-    let tl = gsap.timeline({
-        scrollTrigger: {
-
-            trigger: ".slide5-graphic1",
-
-            scroller: "body",
-
-            // markers: true,
-
-            start: "-230px 20%",
-
-            end: "80% 80%",
-            // markers: true,
-            scrub: 5
-        },
-    });
-
-    tl.fromTo('.slide5-graphic1 ',
+    tl.fromTo('.slide5-graphic1 ,.slide5-graphic2',
         {
-            xPercent: 0,
+            opacity: 0
+
+            // duration: 2,
         },
         {
-            xPercent: 30,
-            // yoyo: true
-            duration: 2,
+            opacity: 1,
+
+            duration: 100,
+            stagger: 1,
+            scrollTrigger: {
+
+                trigger: ".our-data-plan",
+
+                scroller: "body",
+
+                // duration: 0.05,
+                scrub: 1,
+                start: '-350px top',
+                end: '800px bottom',
+                // start: '-650px top',
+                // end: '0px 0px',
+                // markers: true,
+
+
+                // scrub: 5
+
+            },
 
 
         })
 
-    tl.fromTo('.slide5-graphic2 ',
-        {
-            xPercent: 0,
+    return tl;
+}
+
+
+function slide5_scence_5() {
+    let tl = gsap.timeline({
+        scrollTrigger: {
+
+            trigger: " .slide5-graphic1,.slide5-graphic2",
+
+            scroller: "body",
+
+            markers: false,
+
+            start: "-100px 0%",
+
+            end: "0px bottom",
+            // markers: true,
+
+            scrub: 5
+
         },
+    });
+
+    tl.fromTo('.slide5-graphic2, .slide5-graphic1', {
+        yPercent: 0
+    },
         {
-            xPercent: -30,
-            // yoyo: true
-            duration: 2,
 
+            yPercent: 150,
+            duration: 40,
+            stagger: 8
+            // yoyo: true,
 
-        }, "-=1")
-
-    tl.fromTo('.slide5-graphic3',
-        {
-            xPercent: 0,
-        },
-        {
-            xPercent: -70,
-            // yoyo: true
-            duration: 2,
-
-
-        }, "-=1")
+        })
     return tl;
 }
 
 let slide5Master = gsap.timeline()
 // slide5Master.add(sceneSlidemove5())
 slide5Master.add(scenceColorChange5())
-    .add(scene14())
+    .add(slide5_scence_1())
+    // .add(slide5_scence_2())
+    .add(slide5_scence_3())
+    .add(slide5_scence_4())
+    .add(slide5_scence_5())
 //     .add(scene15())
 // slide5Master.pause()
 
@@ -1326,130 +1647,426 @@ function sceneSlidemove6() {
 }
 
 
-function scene16() {
+
+function slide6_scence_1() {
+    let tl = gsap.timeline();
+    tl.fromTo('.char-slide6', { y: 700, x: -700, opacity: 1 }, {
+
+        y: 0, x: 0, duration: 2, opacity: 1, stagger: 1,
+        scrollTrigger: {
+
+            trigger: ".char-slide6",
+
+            scroller: "body",
+
+            // duration: 0.05,
+            scrub: 2,
+            start: '-1200px top',
+            end: '50px bottom',
+            // markers: true,
+
+            // scrub: 5
+
+        },
+
+    })// build scene 2
+
+    return tl;
+}
+
+
+
+function slide6_scence_2() {
+    let tl = gsap.timeline();
+    tl.fromTo(".char-slide6 img",
+        { x: -10, duration: 2 },
+        { x: 20, duration: 2, repeat: -1, yoyo: true })
+    // return tl
+}
+
+
+function slide6_scence_3() {
     let tl = gsap.timeline(
         {
             scrollTrigger: {
 
-                trigger: ".contact",
+                trigger: ".faqs",
 
                 scroller: "body",
 
                 // duration: 0.05,
-                scrub: 5,
-                start: '-600px top',
-                end: '100px bottom',
+                scrub: 1,
+                start: '-550px top',
+                end: '800px bottom',
+                // start: '-650px top',
+                // end: '0px 0px',
+                // markers: true,
+
 
                 // scrub: 5
 
             },
         }
     );
-    tl.fromTo('.contact , .us', {
-        xPercent: -200,
+    // tl.fromTo('.our-data-plan>h2', {
+    //     xPercent: -200,
+
+    // }, {
+    //     xPercent: 0,
+    //     duration: 50,
+    // })
+    tl.fromTo('.faqs .faqs', {
+        xPercent: 300,
         // duration: 2,
     }, {
         xPercent: 0,
-        duration: 50,
-        delay: 2,
-        stagger: 30
+        duration: 100,
+    }, "<100%")
+
+
+
+
+    tl.fromTo('.slide-6 .accor-box .panel', {
+        // xPercent: -200,
+        scale: 0,
+        opacity: 0
+        // duration: 2,
+    }, {
+        // xPercent: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 100,
+        ease: 'power5'
+    })// build scene 2
+
+    tl.fromTo('.slide-6 .accor-box button', {
+        // xPercent: -200,
+
+        opacity: 0
+        // duration: 2,
+    }, {
+        // xPercent: 0,
+
+        opacity: 1,
+        duration: 100,
     })// build scene 2
 
 
-    tl.fromTo('.slide6-graphic1 , .slide6-graphic2',
+
+    return tl;
+}
+function slide6_scence_4() {
+    let tl = gsap.timeline();
+
+    tl.fromTo('.slide6-graphic1 ,.slide6-graphic2',
         {
-            yPercent: 0,
-            opacity: 0,
+            opacity: 0
+
             // duration: 2,
         },
         {
             opacity: 1,
-            yPercent: 5,
-            duration: 3.5,
-            stagger: 1.5,
+
+            duration: 100,
+            stagger: 1,
+            scrollTrigger: {
+
+                trigger: ".faqs",
+
+                scroller: "body",
+
+                // duration: 0.05,
+                scrub: 1,
+                start: '-350px top',
+                end: '800px bottom',
+                // start: '-650px top',
+                // end: '0px 0px',
+                // markers: true,
+
+
+                // scrub: 5
+
+            },
 
 
         })
-    tl.fromTo('.slide6-nav ul li',
-        {
-            yPercent: 0,
-            opacity: 0,
-            scale: 0
-            // duration: 2,
-        },
-        {
-            opacity: 1,
-            scale: 1,
-            duration: 4,
-            stagger: 1.5,
-
-
-        }, "<10")
-
 
     return tl;
 }
 
-function scene17() {
+
+function slide6_scence_5() {
     let tl = gsap.timeline({
         scrollTrigger: {
 
-            trigger: ".slide6-graphic1",
+            trigger: " .slide6-graphic1,.slide6-graphic2",
 
             scroller: "body",
 
+            markers: false,
+
+            start: "-250px 0%",
+
+            end: "0px bottom",
             // markers: true,
 
-            start: "30px 30%",
-
-            end: "80% 80%",
-            // markers: true,
             scrub: 5
+
         },
     });
 
-    tl.fromTo('.slide6-graphic1 ',
+    tl.fromTo('.slide6-graphic2, .slide6-graphic1', {
+        yPercent: 0
+    },
         {
-            xPercent: 0,
-        },
-        {
-            xPercent: 30,
-            // yoyo: true
-            duration: 2,
 
+            yPercent: 150,
+            duration: 40,
+            stagger: 8
+            // yoyo: true,
 
         })
-
-    tl.fromTo('.slide6-graphic2 ',
-        {
-            xPercent: 0,
-        },
-        {
-            xPercent: -30,
-            // yoyo: true
-            duration: 2,
-
-
-        }, "-=1")
-
-
     return tl;
+}
+let slide6Master = gsap.timeline()
+// slide6Master.add(sceneSlidemove6())
+slide6Master.add(scenceColorChange6())
+    .add(slide6_scence_1)
+    .add(slide6_scence_2)
+    .add(slide6_scence_3)
+    .add(slide6_scence_4)
+    .add(slide6_scence_5)
+
+
+// slide 7
+function scenceColorChange7() {
+    let tl = gsap.timeline({
+        scrollTrigger: {
+
+            trigger: ".slide-7",
+
+            scroller: "body",
+
+            // duration: 0.05,
+            scrub: 1,
+            start: '-600px top',
+            end: '600px bottom',
+            // markers: true,
+
+            // scrub: 5
+
+        },
+    })
+    tl.fromTo('.slide-7', {
+        backgroundColor: '#86358a',
+
+
+        // duration: 2,
+    },
+        {
+            backgroundColor: '#b8b2d8',
+
+
+            duration: 1,
+
+
+        })// build scene 2
+    tl.fromTo('.slide-7 .shades', {
+        opacity: 0,
+
+
+
+        // duration: 2,
+    },
+        {
+            opacity: 1,
+
+            duration: 5,
+            ease: "expo.inOut"
+
+        }, "-=0.5")// build scene 2
+    return tl
 }
 
 
-function scene18() {
+
+
+
+function slide7_scence_3() {
     let tl = gsap.timeline(
         {
             scrollTrigger: {
 
-                trigger: ".MainFooter",
+                trigger: ".apply-Now",
+
+                scroller: "body",
+
+                // duration: 0.05,
+                scrub: 1,
+                start: '-750px top',
+                end: '500px bottom',
+                // start: '-650px top',
+                // end: '0px 0px',
+                // markers: true,
+
+
+                // scrub: 5
+
+            },
+        }
+    );
+    // tl.fromTo('.our-data-plan>h2', {
+    //     xPercent: -200,
+
+    // }, {
+    //     xPercent: 0,
+    //     duration: 50,
+    // })
+    tl.fromTo('.apply-Now .apply', {
+        xPercent: -300,
+        // duration: 2,
+    }, {
+        xPercent: 0,
+        duration: 500,
+    }, "<100%")
+    tl.fromTo('.apply-Now .now', {
+        xPercent: -300,
+        // duration: 2,
+    }, {
+        xPercent: 0,
+        duration: 500,
+    }, "<100%")
+
+
+
+
+    tl.fromTo('.slide-7 .form-box', {
+        yPercent: 500,
+        scale: 0.8,
+        opacity: 0,
+        // backgroundColor: '#000',
+        // duration: 2,
+    }, {
+        yPercent: 0,
+        backgroundColor: '#86358a',
+        scale: 1,
+        opacity: 1,
+        duration: 500,
+    })// build scene 2
+
+    tl.fromTo('.slide7-nav ', {
+        // yPercent: 500,
+        scale: 0,
+        opacity: 0,
+        // duration: 2,
+    }, {
+        // yPercent: 0,
+
+        scale: 1,
+        opacity: 1,
+        duration: 200,
+    }, '<100%')// build scene 2
+
+
+
+
+    return tl;
+}
+function slide7_scence_4() {
+    let tl = gsap.timeline();
+
+    tl.fromTo('.slide7-graphic1 ,.slide7-graphic2',
+        {
+            opacity: 0
+
+            // duration: 2,
+        },
+        {
+            opacity: 1,
+
+            duration: 100,
+            stagger: 1,
+            scrollTrigger: {
+
+                trigger: ".apply-Now",
+
+                scroller: "body",
+
+                // duration: 0.05,
+                scrub: 1,
+                start: '-240px 20%',
+                end: 'bottom bottom',
+                // start: '-650px top',
+                // end: '0px 0px',
+                // markers: true,
+
+
+                // scrub: 5
+
+            },
+
+
+        })
+
+    return tl;
+}
+
+
+function slide7_scence_5() {
+    let tl = gsap.timeline({
+        scrollTrigger: {
+
+            trigger: " .slide7-graphic1,.slide7-graphic2",
+
+            scroller: "body",
+
+            markers: false,
+
+            start: "-50px 0%",
+
+            end: "500px bottom",
+            // markers: true,
+
+            scrub: 5
+
+        },
+    });
+
+    tl.fromTo('.slide7-graphic2, .slide7-graphic1', {
+        yPercent: 0
+    },
+        {
+
+            yPercent: 130,
+            duration: 40,
+            stagger: 8
+            // yoyo: true,
+
+        })
+    return tl;
+}
+let slide7Master = gsap.timeline()
+// slide6Master.add(sceneSlidemove6())
+slide7Master.add(scenceColorChange7())
+    // .add(slide7_scence_1)
+    // .add(slide7_scence_2)
+    .add(slide7_scence_3)
+    .add(slide7_scence_4)
+    .add(slide7_scence_5)
+
+function footer_scence_1() {
+    let tl = gsap.timeline(
+        {
+            scrollTrigger: {
+
+                trigger: ".mainFooter",
 
                 scroller: "body",
 
                 // duration: 0.05,
                 scrub: 5,
-                start: 'bottom bottom',
-                end: '100px bottom',
+                start: 'top 90%',
+                end: 'bottom bottom',
                 // markers: true
                 // scrub: 5
 
@@ -1507,14 +2124,10 @@ function scene18() {
 
     return tl;
 }
-let slide6Master = gsap.timeline()
-// slide6Master.add(sceneSlidemove6())
-slide6Master.add(scenceColorChange6())
-    .add(scene16())
-    .add(scene17())
-    .add(scene18())
-// .add(scene15())
 
+let footerMaster = gsap.timeline()
+// slide6Master.add(sceneSlidemove6())
+footerMaster.add(footer_scence_1())
 
 
 var acc = document.getElementsByClassName("accordion");
